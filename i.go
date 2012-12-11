@@ -1,22 +1,23 @@
 package main
 
 import (
+	"bytes"
 	_ "fmt"
-	"strconv"
 	"image"
 	"image/jpeg"
 	_ "image/png"
-	"net/http"
-	"log"
 	_ "io"
-	"bytes"
 	"io/ioutil"
+	"log"
+	"net/http"
 	"resize"
+	"strconv"
 )
+
 type Img struct {
 	Filename string
-	Url string
-	Content []byte
+	Url      string
+	Content  []byte
 }
 
 func (p *Img) save() error {
@@ -26,7 +27,7 @@ func (p *Img) save() error {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	get := func(n string) int {
-		i, _  :=  strconv.Atoi(r.FormValue(n))
+		i, _ := strconv.Atoi(r.FormValue(n))
 		return i
 	}
 	myurl := "https://s3.amazonaws.com/lenses_s3/uploads/IMG_1762.JPG"

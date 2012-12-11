@@ -2,11 +2,9 @@ package main
 
 import (
 	"bytes"
-	_ "fmt"
 	"image"
 	"image/jpeg"
 	_ "image/png"
-	_ "io"
 	"io/ioutil"
 	"log"
 	"net/http"
